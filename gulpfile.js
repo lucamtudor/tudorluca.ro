@@ -1,13 +1,12 @@
 /*global -$ */
 'use strict';
-// generated on 2015-06-04 using generator-gulp-webapp 0.3.0
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
 gulp.task('styles', function () {
-    return gulp.src('app/styles/main.css')
+    return gulp.src('app/styles/**/*.css')
         .pipe($.sourcemaps.init())
         .pipe($.postcss([
             require('autoprefixer-core')({browsers: ['last 1 version']})
@@ -16,6 +15,18 @@ gulp.task('styles', function () {
         .pipe(gulp.dest('.tmp/styles'))
         .pipe(reload({stream: true}));
 });
+
+//gulp.task('styles', function () {
+//    return gulp.src(['app/styles/**/*.scss', 'app/styles/**/*.css'])
+//        .pipe($.sourcemaps.init())
+//        .pipe($.sass({errLogToConsole: true}))
+//        .pipe($.autoprefixer('last 1 version'))
+//        .pipe($.sourcemaps.write())
+//        .pipe(gulp.dest('app/styles'))
+//        .pipe(reload({stream: true}))
+//        .pipe($.size())
+//        .pipe($.notify("Compilation complete."));
+//});
 
 gulp.task('jshint', function () {
     return gulp.src('app/scripts/**/*.js')
