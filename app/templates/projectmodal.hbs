@@ -1,0 +1,50 @@
+<div class="portfolio-modal modal fade" id="{{id}}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>{{name}}</h2>
+                        <hr class="star-primary">
+
+                        <div id="carousel{{id}}" class="carousel slide" data-interval="3000" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                {{#each imageUrls}}
+                                    <li data-target="#carousel{{../id}}"
+                                        data-slide-to="{{@index}}"
+                                        {{#if @first}}class="active" {{/if}}></li>
+                                {{/each}}
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" style="height: 450px">
+                                {{#each imageUrls}}
+                                    <div class="item {{#if @first}}active{{/if}}">
+                                        <img class="img-responsive center-block" src="{{this}}" alt="...">
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+
+                        <p>{{description}}</p>
+                        <ul class="list-inline item-details">
+                            <li>Client:
+                                <strong><a href="{{clientUrl}}">{{clientName}}</a></strong>
+                            </li>
+                            <li>Date:
+                                <strong><a href="#">{{date}}</a></strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

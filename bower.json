@@ -1,0 +1,9 @@
+{
+  "name": "resume",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "bootswatch-dist": "flatly",
+    "handlebars": "~3.0.3"
+  }
+}

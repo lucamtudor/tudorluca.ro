@@ -1,0 +1,28 @@
+{{#each items}}
+    <div class="resume-item">
+        <div class="resume-year">
+            <span class="resume-year">{{period}}</span>
+        </div>
+
+        <div class="resume-btn">
+            <a href="#{{id}}" {{#if @first}}{{else}}class="collapsed"{{/if}}
+               aria-expanded="{{#if @first}}true{{else}}false{{/if}}"
+               data-toggle="collapse" data-parent="#{{parentId}}"></a>
+        </div>
+
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <h4 class="resume-title">{{title}}</h4>
+                </div>
+            </div>
+
+            <div id="{{id}}" class="panel-collapse collapse {{#if @first}}in{{/if}}"
+                 aria-expanded="{{#if @first}}true{{else}}false{{/if}}">
+                <div class="panel-body text-grey">
+                    <p>{{description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/each}}
