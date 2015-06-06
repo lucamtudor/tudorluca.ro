@@ -1,4 +1,5 @@
-/* jshint devel:true */
+/* jshint devel:false*/
+/*global Resume*/
 
 'use strict';
 // jQuery for page scrolling feature - requires jQuery Easing plugin
@@ -55,19 +56,20 @@ $(function () {
     var projects = [
         {
             id: 'project1',
-            name: 'DayCare Management System',
+            name: 'SmartCare',
             date: 'April 2014 - Future',
-            description: 'A management system for daycare centers.',
-            clientName: 'Smart Care',
+            description: 'SmartCare launched to improve the lives of child care providers nationwide.' +
+            ' We have a simple belief: Less time with computers means more time with children.' +
+            ' More time with children means a better future for our country.',
+            clientName: 'SmartCare',
             clientUrl: 'http://smart.care',
-            thumbnailUrl: 'http://smart.care/wp-content/uploads/2015/01/Feature-interface-3.png',
+            thumbnailUrl: '../images/portfolio/smartcare/thumbnail.png',
             imageUrls: [
-                'http://smart.care/wp-content/uploads/2015/01/Feature-interface-3.png',
-                'http://smart.care/wp-content/uploads/2015/01/Feature-child-family-tracking-2.png',
-                'http://smart.care/wp-content/uploads/2015/01/Feature-mobile-childcare-intuit-4.png',
-                'http://smart.care/wp-content/uploads/2015/01/Feature-marketing-3.png',
-                'http://smart.care/wp-content/uploads/2015/01/Feature-billing-schedule-4.png',
-                'http://smart.care/wp-content/uploads/2014/12/Feature-SignIn-SignOut-a-3.png'
+                '../images/portfolio/smartcare/smartcare1.png',
+                '../images/portfolio/smartcare/smartcare2.png',
+                '../images/portfolio/smartcare/smartcare3.png',
+                '../images/portfolio/smartcare/smartcare4.png',
+                '../images/portfolio/smartcare/smartcare5.png'
             ]
         },
         {
@@ -75,17 +77,17 @@ $(function () {
             name: 'Mosaic',
             date: 'July 2013 - September 2013',
             description: 'Create a printed photo book from your Android phone or tablet in a snap.' +
-            'Arrives in 4 days. It’s the easiest way to create a personalized photo album or' +
+            ' Arrives in 4 days. It’s the easiest way to create a personalized photo album or ' +
             'photo gift for family and friends with the pictures on your phone.',
             clientName: 'Mixbook',
             clientUrl: 'http://www.heymosaic.com/',
-            thumbnailUrl: 'https://lh4.ggpht.com/njxORYEYWmS9gk9hUjxWs2yQDGlMDfIU5Rq-JXNZMwTNY--VeFpjPiwg0AxkaBz8bAE=h400-rw',
+            thumbnailUrl: '../images/portfolio/mosaic/thumbnail.png',
             imageUrls: [
-                'https://lh4.ggpht.com/njxORYEYWmS9gk9hUjxWs2yQDGlMDfIU5Rq-JXNZMwTNY--VeFpjPiwg0AxkaBz8bAE=h400-rw',
-                'https://lh5.ggpht.com/kzFQ6-y4VBHi5LGP2g0sskAWrPq-O4Y84xYc3rn98X2t0q5TLnoc1Kzp23NqxM7kyAHH=h400-rw',
-                'https://lh5.ggpht.com/q3L6OaJfZdF7ktqAma7CCJ7wprhSUairYRDVKMtI0GCJeplaa3ulHoeGe6jpO6kBDQ=h400-rw',
-                'https://lh4.ggpht.com/iSyUUG_iWLMNCrdIBtoCmMhfQ7_899bfUV3Keaoxmo1L9ht9zK0mAvGlv7I_mGl3l-I=h400-rw',
-                'https://lh5.ggpht.com/ah-Q3zaL3rd46CLY3uBHu4AMPjMP7HaZ-CuXsAXgzb8RKolG-ixXAsRaLxFugQi_WyE=h400-rw'
+                '../images/portfolio/mosaic/mosaic1.png',
+                '../images/portfolio/mosaic/mosaic2.png',
+                '../images/portfolio/mosaic/mosaic3.png',
+                '../images/portfolio/mosaic/mosaic4.png',
+                '../images/portfolio/mosaic/mosaic5.png'
             ]
         }
     ];
@@ -105,11 +107,11 @@ $(function () {
     var skillsSection = $('#skills-container');
     var skills = {
         skills: [
-            {name: 'Android SDK', url: ''},
-            {name: 'Java', url: ''},
-            {name: 'Kotlin', url: ''},
-            {name: 'Gradle', url: ''},
-            {name: 'Git', url: ''}
+            {name: 'Android SDK', url: 'http://developer.android.com/'},
+            {name: 'Java', url: 'http://www.oracle.com/technetwork/java/index.html'},
+            {name: 'Kotlin', url: 'http://kotlinlang.org/'},
+            {name: 'Gradle', url: 'https://gradle.org/'},
+            {name: 'Git', url: 'https://git-scm.com/'}
         ]
     };
     skillsSection.append(Resume.templates.skills(skills));
@@ -123,7 +125,7 @@ $(function () {
             id: 'edu1',
             parentId: 'education',
             title: 'Bachelors Degree - Technical University of Cluj-Napoca',
-            description: 'Automation and Applied Informatics',
+            description: '<strong><a href="http://ac.utcluj.ro/">Automation and Applied Informatics</a></strong>',
             period: '2011-2015'
         }];
     educationSection.append(Resume.templates.resumeitem({items: eduArray}));
@@ -134,14 +136,14 @@ $(function () {
             id: 'work1',
             parentId: 'work',
             title: 'Android Development Consultant - Smart Care',
-            description: 'I am busy helping the SmartCare team to revolutionize the child care industry.',
+            description: 'I am busy helping the <strong><a href="http://smart.care">SmartCare</a></strong> team to revolutionize the child care industry.',
             period: '2014-'
         },
         {
             id: 'work2',
             parentId: 'work',
             title: 'Android Development Consultant - Mixbook',
-            description: 'I worked closely with the Mixbook team to help them bring their awesome photo book services ' +
+            description: 'I worked closely with the <strong><a href="http://www.mixbook.com/">Mixbook</a></strong> team to help them bring their awesome photo book services ' +
             'to the Android platform through the Mosaic Photo books app.',
             period: '2013'
         },
