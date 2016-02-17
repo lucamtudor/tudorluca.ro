@@ -136,15 +136,18 @@ $(function () {
             id: 'work1',
             parentId: 'work',
             title: 'Android Development Consultant - Smart Care',
-            description: 'I am busy helping the <strong><a href="http://smart.care">SmartCare</a></strong> team to revolutionize the child care industry.',
-            period: '2014-'
+            description: 'I am busy helping the <strong><a href="http://smart.care">SmartCare</a></strong> team to ' +
+            'revolutionize the child care industry, bringing their service to the Android Platform.' +
+            'I helped build 3 full–fledged Android apps, for different form-factors. ',
+            period: '2014-Present'
         },
         {
             id: 'work2',
             parentId: 'work',
             title: 'Android Development Consultant - Mixbook',
-            description: 'I worked closely with the <strong><a href="http://www.mixbook.com/">Mixbook</a></strong> team to help them bring their awesome photo book services ' +
-            'to the Android platform through the Mosaic Photo books app.',
+            description: 'I worked closely with the <strong><a href="http://www.mixbook.com/">Mixbook</a></strong> team to ' +
+            'help them bring their awesome photo book services to the Android platform through the Mosaic Photo books app. ' +
+            'My main focus was on the 3D book previewer, which I built using OpenGL ES technologies.',
             period: '2013'
         },
         {
