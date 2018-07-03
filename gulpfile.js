@@ -9,35 +9,23 @@ gulp.task('styles', function () {
     return gulp.src('app/styles/**/*.css')
         .pipe($.sourcemaps.init())
         .pipe($.postcss([
-            require('autoprefixer-core')({browsers: ['last 1 version']})
+            require('autoprefixer-core')({ browsers: [ 'last 1 version' ] })
         ]))
         .pipe($.sourcemaps.write())
         .pipe(gulp.dest('.tmp/styles'))
-        .pipe(reload({stream: true}));
+        .pipe(reload({ stream: true }));
 });
 
-//gulp.task('styles', function () {
-//    return gulp.src(['app/styles/**/*.scss', 'app/styles/**/*.css'])
-//        .pipe($.sourcemaps.init())
-//        .pipe($.sass({errLogToConsole: true}))
-//        .pipe($.autoprefixer('last 1 version'))
-//        .pipe($.sourcemaps.write())
-//        .pipe(gulp.dest('app/styles'))
-//        .pipe(reload({stream: true}))
-//        .pipe($.size())
-//        .pipe($.notify("Compilation complete."));
-//});
+// gulp.task('jshint', function () {
+//     return gulp.src('app/scripts/**/*.js')
+//         .pipe(reload({stream: true, once: true}))
+//         .pipe($.jshint())
+//         .pipe($.jshint.reporter('jshint-stylish'))
+//         .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
+// });
 
-gulp.task('jshint', function () {
-    return gulp.src('app/scripts/**/*.js')
-        .pipe(reload({stream: true, once: true}))
-        .pipe($.jshint())
-        .pipe($.jshint.reporter('jshint-stylish'))
-        .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
-});
-
-gulp.task('html', ['styles'], function () {
-    var assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
+gulp.task('html', [ 'styles' ], function () {
+    var assets = $.useref.assets({ searchPath: [ '.tmp', 'app', '.' ] });
 
     return gulp.src('app/*.html')
         .pipe(assets)
@@ -45,7 +33,7 @@ gulp.task('html', ['styles'], function () {
         .pipe($.if('*.css', $.csso()))
         .pipe(assets.restore())
         .pipe($.useref())
-        .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
+        .pipe($.if('*.html', $.minifyHtml({ conditionals: true, loose: true })))
         .pipe(gulp.dest('dist'));
 });
 
@@ -69,7 +57,7 @@ gulp.task('images', function () {
             interlaced: true,
             // don't remove IDs from SVGs, they are often used
             // as hooks for embedding and styling
-            svgoPlugins: [{cleanupIDs: false}]
+            svgoPlugins: [ { cleanupIDs: false } ]
         })))
         .pipe(gulp.dest('dist/images'));
 });
@@ -91,14 +79,14 @@ gulp.task('extras', function () {
     }).pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
+gulp.task('clean', require('del').bind(null, [ '.tmp', 'dist' ]));
 
-gulp.task('serve', ['styles', 'templates', 'fonts'], function () {
+gulp.task('serve', [ 'styles', 'templates', 'fonts' ], function () {
     browserSync({
         notify: false,
         port: 9000,
         server: {
-            baseDir: ['.tmp', 'app'],
+            baseDir: [ '.tmp', 'app' ],
             routes: {
                 '/bower_components': 'bower_components'
             }
@@ -114,10 +102,10 @@ gulp.task('serve', ['styles', 'templates', 'fonts'], function () {
         '.tmp/scripts/**/*js'
     ]).on('change', reload);
 
-    gulp.watch('app/templates/**/*.hbs', ['templates']);
-    gulp.watch('app/styles/**/*.css', ['styles']);
-    gulp.watch('app/fonts/**/*', ['fonts']);
-    gulp.watch('bower.json', ['wiredep', 'fonts']);
+    gulp.watch('app/templates/**/*.hbs', [ 'templates' ]);
+    gulp.watch('app/styles/**/*.css', [ 'styles' ]);
+    gulp.watch('app/fonts/**/*', [ 'fonts' ]);
+    gulp.watch('bower.json', [ 'wiredep', 'fonts' ]);
 });
 
 // inject bower components
@@ -131,10 +119,10 @@ gulp.task('wiredep', function () {
         .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['jshint', 'html', 'templates', 'images', 'fonts', 'extras'], function () {
-    return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+gulp.task('build', [ /*'jshint',*/ 'html', 'templates', 'images', 'fonts', 'extras' ], function () {
+    return gulp.src('dist/**/*').pipe($.size({ title: 'build', gzip: true }));
 });
 
-gulp.task('default', ['clean'], function () {
+gulp.task('default', [ 'clean' ], function () {
     gulp.start('build');
 });
